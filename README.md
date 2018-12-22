@@ -1,6 +1,6 @@
 #  LottoKit
 
-Swift framework and CLI tool to check tickets from Spanish Christmas Lottery..
+Swift framework and CLI tool to check tickets from Spanish Christmas Lottery.
 
 ## Requirements
 
