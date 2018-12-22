@@ -22,7 +22,6 @@ public struct LottoManager {
                 return "Data error: \(description)."
             case .serverError(let description):
                 return "Server error: \(description)."
-
             }
         }
     }
