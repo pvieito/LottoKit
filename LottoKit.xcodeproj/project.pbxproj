@@ -96,7 +96,6 @@
 				AA558ABC1EC284590099A8B0 /* LottoTool */,
 				AACA627120056EA000CC7D8F /* LottoKit */,
 				AA558ABB1EC284590099A8B0 /* Products */,
-				AACA627B20056F7700CC7D8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,13 +142,6 @@
 				AACA627320056EA000CC7D8F /* Info.plist */,
 			);
 			path = LottoKit;
-			sourceTree = "<group>";
-		};
-		AACA627B20056F7700CC7D8F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
