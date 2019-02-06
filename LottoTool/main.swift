@@ -24,7 +24,7 @@ do {
 }
 catch {
     cli.printUsage(error)
-    exit(-1)
+    exit(EX_USAGE)
 }
 
 if helpOption.value {
@@ -36,12 +36,10 @@ Logger.logMode = .commandLine
 Logger.logLevel = verboseOption.value ? .debug : .info
 
 guard let inputValues = inputOption.value else {
-    Logger.log(warning: "Input values not specified.")
-    exit(-1)
+    Logger.log(fatalError: "Input values not specified.")
 }
 
 for inputValue in inputValues {
-
     guard let inputNumber = Int(inputValue) else {
         Logger.log(warning: "Input value “\(inputValue)” is not a valid number.")
         continue
@@ -52,7 +50,6 @@ for inputValue in inputValues {
         Logger.log(success: lottoResult)
     }
     catch {
-        Logger.log(error: "\(inputNumber): \(error.localizedDescription)")
+        Logger.log(warning: "\(inputNumber): \(error.localizedDescription)")
     }
 }
-
