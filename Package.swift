@@ -28,6 +28,10 @@ let package = Package(
             name: "LottoKit",
             dependencies: ["LoggerKit"],
             path: "LottoKit"
+        ),
+        .testTarget(
+            name: "LottoKitTests",
+            dependencies: ["LottoKit"]
         )
     ]
 )
