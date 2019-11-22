@@ -8,6 +8,10 @@
 
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public struct LottoManager {
     enum LottoError: LocalizedError {
         case httpError(Int)
