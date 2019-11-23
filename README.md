@@ -4,7 +4,7 @@ Swift framework and CLI tool to check tickets from Spanish Christmas Lottery.
 
 ## Requirements
 
-`LottoKit` requires **Swift 4.2** or higher and has been tested both on macOS and Linux.
+`LottoKit` requires **Swift 5** or higher and has been tested both on macOS and Linux.
 
 ## Usage
 
