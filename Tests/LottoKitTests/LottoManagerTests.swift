@@ -12,7 +12,7 @@ import LottoKit
 
 class LottoManagerTests: XCTestCase {
     static let invalidLottoNumbers = [-1, 100000]
-    static let validLottoNumbers = [0, 1993, 99999]
+    static let validLottoNumbers = [0] + Array(1993...2019) + [99999]
     
     func testLottoManagerInputChecks() throws {
         for lottoMode in LottoManager.LottoMode.allCases + [nil] {
