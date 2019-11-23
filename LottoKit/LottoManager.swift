@@ -30,7 +30,7 @@ public struct LottoManager {
         }
     }
     
-    public enum LottoMode: String {
+    public enum LottoMode: String, CaseIterable {
         case christmas = "Christmas"
         case elNiño = "ElNiño"
         
