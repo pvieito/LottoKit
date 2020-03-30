@@ -68,14 +68,14 @@ public struct LottoManager {
         
         guard responseString.hasPrefix(LottoManager.lottoApiResponsePreffix),
             let jsonData = responseString.replacingOccurrences(of: LottoManager.lottoApiResponsePreffix, with: "").data(using: .utf8) else {
-                throw LottoError.dataError("Malformed response string")
+                throw LottoError.dataError("Malformed response string.")
         }
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
         
         guard let lottoResult = try? decoder.decode(LottoResult.self, from: jsonData) else {
-            throw LottoError.serverError("Malformed response dictionary")
+            throw LottoError.serverError("Malformed response dictionary.")
         }
         
         return lottoResult
