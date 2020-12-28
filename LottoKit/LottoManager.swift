@@ -23,9 +23,9 @@ public struct LottoManager {
             case .httpError(let errorCode):
                 return "HTTP error with code “\(errorCode)”."
             case .dataError(let description):
-                return "Data error: \(description)."
+                return "Data error: \(description)"
             case .serverError(let description):
-                return "Server error: \(description)."
+                return "Server error: \(description)"
             }
         }
     }

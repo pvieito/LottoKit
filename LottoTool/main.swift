@@ -7,49 +7,44 @@
 //
 
 import Foundation
+import FoundationKit
 import LoggerKit
-import CommandLineKit
+import ArgumentParser
 import LottoKit
 
-let inputOption = MultiStringOption(shortFlag: "i", longFlag: "input", required: true, helpMessage: "Input numbers.")
-let modeOption = EnumOption<LottoManager.LottoMode>(shortFlag: "m", longFlag: "mode", helpMessage: "Lotto mode.")
-let verboseOption = BoolOption(shortFlag: "v", longFlag: "verbose", helpMessage: "Verbose mode.")
-let helpOption = BoolOption(shortFlag: "h", longFlag: "help", helpMessage: "Prints a help message.")
-
-let cli = CommandLineKit.CommandLine()
-cli.addOptions(inputOption, modeOption, verboseOption, helpOption)
-
-do {
-    try cli.parse(strict: true)
-}
-catch {
-    cli.printUsage(error)
-    exit(EX_USAGE)
-}
-
-if helpOption.value {
-    cli.printUsage()
-    exit(0)
-}
-
-Logger.logMode = .commandLine
-Logger.logLevel = verboseOption.value ? .debug : .info
-
-guard let inputValues = inputOption.value else {
-    Logger.log(fatalError: "Input values not specified.")
-}
-
-for inputValue in inputValues {
-    guard let inputNumber = Int(inputValue) else {
-        Logger.log(warning: "Input value “\(inputValue)” is not a valid number.")
-        continue
+struct LottoTool: ParsableCommand {
+    static var configuration: CommandConfiguration {
+        return CommandConfiguration(commandName: String(describing: Self.self))
     }
     
-    do {
-        let lottoResult = try LottoManager.checkLotto(number: inputNumber, mode: modeOption.value)
-        Logger.log(success: lottoResult)
-    }
-    catch {
-        Logger.log(warning: "\(inputNumber): \(error.localizedDescription)")
+    @Option(name: .shortAndLong, parsing: .upToNextOption, help: "Input numbers.")
+    var input: Array<String>
+    
+    @Option(name: .shortAndLong, help: "Output format.")
+    var mode: LottoManager.LottoMode?
+        
+    @Flag(name: .shortAndLong, help: "Verbose mode.")
+    var verbose: Bool = false
+    
+    func run() throws {
+        Logger.logMode = .commandLine
+        Logger.logLevel = self.verbose ? .debug : .info
+
+        for inputValue in self.input {
+            guard let inputNumber = Int(inputValue) else {
+                Logger.log(warning: "Input value “\(inputValue)” is not a valid number.")
+                continue
+            }
+            
+            do {
+                let lottoResult = try LottoManager.checkLotto(number: inputNumber, mode: self.mode)
+                Logger.log(success: lottoResult)
+            }
+            catch {
+                Logger.log(warning: "\(inputNumber): \(error.localizedDescription)")
+            }
+        }
     }
 }
+
+LottoTool.main()
