@@ -1,9 +1,12 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.5
 
 import PackageDescription
 
 let package = Package(
     name: "LottoKit",
+    platforms: [
+        .macOS(.v12),
+    ],
     products: [
         .executable(
             name: "LottoTool",
@@ -20,7 +23,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.1"),
     ],
     targets: [
-        .target(
+        .executableTarget(
             name: "LottoTool",
             dependencies: ["LottoKit", "FoundationKit", .product(name: "ArgumentParser", package: "swift-argument-parser")],
             path: "LottoTool"

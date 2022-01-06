@@ -52,7 +52,7 @@ public struct LottoManager {
         }
     }
     
-    private static let lottoApiResponsePreffix = "busqueda="
+    private static let lottoApiResponsePrefix = "busqueda="
     
     private static func getLottoURL(number: Int, mode: LottoMode) -> URL {
         var urlComponents = URLComponents(string: mode.apiEndpointString)!
@@ -66,8 +66,8 @@ public struct LottoManager {
         let url = self.getLottoURL(number: number, mode: mode)
         let responseString = try String(contentsOf: url)
         
-        guard responseString.hasPrefix(LottoManager.lottoApiResponsePreffix),
-            let jsonData = responseString.replacingOccurrences(of: LottoManager.lottoApiResponsePreffix, with: "").data(using: .utf8) else {
+        guard responseString.hasPrefix(LottoManager.lottoApiResponsePrefix),
+            let jsonData = responseString.replacingOccurrences(of: LottoManager.lottoApiResponsePrefix, with: "").data(using: .utf8) else {
                 throw LottoError.dataError("Malformed response string.")
         }
         
