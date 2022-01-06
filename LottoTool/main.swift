@@ -20,7 +20,7 @@ struct LottoTool: ParsableCommand {
     @Option(name: .shortAndLong, parsing: .upToNextOption, help: "Input numbers.")
     var input: Array<String>
     
-    @Option(name: .shortAndLong, help: "Output format (\(LottoManager.LottoMode.allCases.map(\.rawValue).quotedListDescription)).")
+    @Option(name: .shortAndLong, help: "Output format (\(LottoManager.LottoMode.allCases.map(\.rawValue).joined(separator: ", "))).")
     var mode: LottoManager.LottoMode?
         
     @Flag(name: .shortAndLong, help: "Verbose mode.")
