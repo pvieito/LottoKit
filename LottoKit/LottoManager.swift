@@ -31,8 +31,8 @@ public struct LottoManager {
     }
     
     public enum LottoMode: String, CaseIterable {
-        case christmas = "Christmas"
-        case elNiño = "ElNiño"
+        case christmas = "christmas"
+        case elNiño = "el-niño"
         
         static var defaultMode: LottoMode {
             return .christmas
