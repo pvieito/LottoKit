@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  LottoTool.swift
 //  LottoTool
 //
 //  Created by Pedro José Pereira Vieito on 30/12/2017.
@@ -12,6 +12,7 @@ import LoggerKit
 import ArgumentParser
 import LottoKit
 
+@main
 struct LottoTool: ParsableCommand {
     static var configuration: CommandConfiguration {
         return CommandConfiguration(commandName: String(describing: Self.self))
@@ -47,4 +48,3 @@ struct LottoTool: ParsableCommand {
     }
 }
 
-LottoTool.main()
