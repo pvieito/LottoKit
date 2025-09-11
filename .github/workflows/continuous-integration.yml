@@ -1,8 +1,10 @@
 name: Continuous Integration
 
 on:
-  - push
-  - pull_request
+  # NOTE: Automatic triggers disabled as the El País Lotto API is no longer available:
+  # - push
+  # - pull_request
+  workflow_dispatch:
 
 jobs:
   continuous-integration:
