@@ -1,4 +1,4 @@
-#  LottoKit
+# LottoKit
 
 Swift framework and CLI tool to check tickets from Spanish Christmas Lottery.
 
@@ -8,7 +8,7 @@ Swift framework and CLI tool to check tickets from Spanish Christmas Lottery.
 
 ## Usage
 
-To check the lottery tickets agains the Chrismast Lottery results simply feed the numbers:
+To check the lottery tickets against the Christmas Lottery results, simply feed the numbers:
 
 ```
 $ cd LottoKit
@@ -26,4 +26,4 @@ $ swift run LottoTool -i 03347 21015 04211 -m ElNiño
 
 ## Notes
 
- `LottoKit` uses [_El País_ Christmas Lottery API](https://servicios.elpais.com/sorteos/loteria-navidad/api/) as its backend. Always double check the result with the official [ONLAE](https://www.loteriasyapuestas.es/es/loteria-nacional) list.
+`LottoKit` uses [_El País_ Christmas Lottery API](https://servicios.elpais.com/sorteos/loteria-navidad/api/) as its backend. Always double-check the result with the official [ONLAE](https://www.loteriasyapuestas.es/es/loteria-nacional) list.
